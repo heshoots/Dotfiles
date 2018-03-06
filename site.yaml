@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+  - vim
+  - chrome
+  - docker
+  - kubernetes
+  - i3

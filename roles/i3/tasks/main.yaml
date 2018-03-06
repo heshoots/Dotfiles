@@ -1,0 +1,41 @@
+- name: Install i3 dependencies
+  apt: 
+    name: "{{ item }}"
+    state: installed
+  with_items:
+  - libxcb1-dev
+  - libxcb-keysyms1-dev
+  - libpango1.0-dev
+  - libxcb-util0-dev
+  - libxcb-icccm4-dev
+  - libyajl-dev
+  - libstartup-notification0-dev
+  - libxcb-randr0-dev
+  - libev-dev
+  - libxcb-cursor-dev
+  - libxcb-xinerama0-dev
+  - libxcb-xkb-dev
+  - libxkbcommon-dev
+  - libxkbcommon-x11-dev
+  - autoconf
+  - libxcb-xrm0
+  - libxcb-xrm-dev
+  - automake
+  - dmenu
+  - i3status
+- name: check i3 not installed
+  stat: path=/usr/bin/i3
+  register: i3_available
+- name: download i3 gaps
+  unarchive:
+    src: https://github.com/Airblader/i3/archive/4.14.1.tar.gz 
+    dest: /usr/local/src
+    remote_src: yes
+  when: i3_available == False
+- name: install i3 gaps
+  shell: "cd /usr/local/src/i3-4.14.1 && autoreconf --force --install && rm -rf build/ && mkdir -p build && cd build && ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && make install"
+  when: i3_available == False
+- name: move i3 dotfiles
+  file:
+    src: ./files/i3/config
+    dest: /home/max/.config/i3/config

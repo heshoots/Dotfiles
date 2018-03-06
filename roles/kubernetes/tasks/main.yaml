@@ -1,0 +1,11 @@
+- name: check kubectl available
+  stat:
+    path: /usr/local/bin/kubectl
+  register: kubectl_location
+- name: install kubectl
+  shell: "wget https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl"
+  when: kubectl_location == False
+- name: set permissions on kubectl
+  file:
+    path: /usr/local/bin/kubectl
+    mode: "0775"

@@ -1,0 +1,29 @@
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+- name: add docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+- name: add docker repo
+  apt_repository:
+    repo: "deb [arc=amd64] https://download.docker.com/linux/ubuntu artful stable"
+- name: install docker
+  apt:
+    name: docker
+    state: installed
+    update_cache: true
+- name: create docker group
+  group:
+    name: docker
+    state: present
+- name: add user to docker group
+  user:
+    name: max
+    groups: docker
+    append: yes
