@@ -1,0 +1,15 @@
+- include_vars: ../vars/rsaprivatekey.yaml
+  tags: 
+    ssh
+- name: move credentials
+  copy:
+    content: "{{ vault_id_rsa }}"
+    dest: /home/max/.ssh/id_rsa
+  tags:
+    ssh
+- name: move public key
+  copy:
+    src: ../files/id_rsa.pub
+    dest: /home/max/.ssh/id_rsa.pub
+  tags:
+    ssh
