@@ -1,11 +1,8 @@
 ---
-- hosts: localhost
+- hosts: homeserver
   become: yes
+  remote_user: max
   become_method: sudo
   roles:
   - vim
-  - chrome
   - docker
-  - kubernetes
-  - i3
-  - aws
