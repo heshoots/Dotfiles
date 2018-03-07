@@ -24,18 +24,23 @@
   - dmenu
   - i3status
 - name: check i3 not installed
-  stat: path=/usr/bin/i3
+  stat: 
+    path: /usr/bin/i3
   register: i3_available
 - name: download i3 gaps
   unarchive:
     src: https://github.com/Airblader/i3/archive/4.14.1.tar.gz 
     dest: /usr/local/src
     remote_src: yes
-  when: i3_available == False
+  when: i3_available.stat.exists == False
 - name: install i3 gaps
   shell: "cd /usr/local/src/i3-4.14.1 && autoreconf --force --install && rm -rf build/ && mkdir -p build && cd build && ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && make install"
-  when: i3_available == False
-- name: move i3 dotfiles
+  when: i3_available.stat.exists == False
+- name: create i3 dotfiles
   file:
-    src: ./files/i3/config
+    path: /home/max/.config/i3/
+    state: directory
+- name: move i3 dotfiles
+  copy:
+    src: ../files/i3/config
     dest: /home/max/.config/i3/config
