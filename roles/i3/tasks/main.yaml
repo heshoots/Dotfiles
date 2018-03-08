@@ -44,3 +44,11 @@
   copy:
     src: ../files/i3/config
     dest: /home/max/.config/i3/config
+- name: move wallpapers
+  copy:
+    src: ../files/wallpapers/
+    dest: /home/max/.config/wallpapers/
+- name: install nitrogen
+  apt:
+    name: nitrogen
+    state: installed
