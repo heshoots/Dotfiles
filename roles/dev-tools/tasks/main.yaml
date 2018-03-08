@@ -1,0 +1,4 @@
+- name: install password gorilla
+  apt:
+    name: password-gorilla
+    state: installed
