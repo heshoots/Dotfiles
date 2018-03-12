@@ -3,12 +3,12 @@
   become: yes
   become_method: sudo
   roles:
-  - vim
   - chrome
   - docker
-  - kubernetes
+  - kube-tools
   - i3
   - aws
   - spotify
   - keys
   - dev-tools
+  - kube-tools

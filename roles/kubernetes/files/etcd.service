@@ -1,0 +1,9 @@
+[Unit]
+Description=Run etcd on machine
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/etcd
+
+[Install]
+WantedBy=multi-user.target

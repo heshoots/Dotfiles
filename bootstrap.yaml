@@ -1,7 +1,7 @@
 ---
 - hosts: homeserver
+  gather_facts: no
   become: yes
   remote_user: max
   roles:
-  - vim
-  - docker
+  - bootstrap

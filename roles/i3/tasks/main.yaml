@@ -44,6 +44,14 @@
   copy:
     src: ../files/i3/config
     dest: /home/max/.config/i3/config
+- name: create i3status dotfiles
+  file:
+    path: /home/max/.config/i3status/
+    state: directory
+- name: move i3status dotfiles
+  copy:
+    src: ../files/i3status/config
+    dest: /home/max/.config/i3status/config
 - name: move wallpapers
   copy:
     src: ../files/wallpapers/

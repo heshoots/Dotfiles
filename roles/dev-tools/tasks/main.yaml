@@ -2,3 +2,4 @@
   apt:
     name: password-gorilla
     state: installed
+- include: ../vim/tasks/main.yaml
