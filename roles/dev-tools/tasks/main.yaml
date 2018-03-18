@@ -2,4 +2,12 @@
   apt:
     name: password-gorilla
     state: installed
+- name: move fonts
+  copy:
+    src: ../files/fonts/
+    dest: /home/max/.fonts/
+    directory_mode: yes
+- name: refresh font cache
+  become: yes
+  command: fc-cache -vf
 - include: ../vim/tasks/main.yaml
