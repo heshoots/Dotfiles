@@ -6,6 +6,9 @@
   copy:
     src: ../files/fonts/
     dest: /home/max/.fonts/
+    owner: max
+    group: max
+    mode: 0775
     directory_mode: yes
 - name: refresh font cache
   become: yes
