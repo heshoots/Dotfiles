@@ -2,6 +2,14 @@
   apt:
     name: password-gorilla
     state: installed
+- name: swap capslock and escape
+  lineinfile:
+    path: /home/max/.profile
+    line: 'setxkbmap -option caps:swapescape'
+- name: swap capslock and escape
+  lineinfile:
+    path: /home/max/.bashrc
+    line: 'alias k=kubectl'
 - name: move fonts
   copy:
     src: ../files/fonts/

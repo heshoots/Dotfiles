@@ -9,13 +9,14 @@
   file:
     path: /usr/local/bin/kubectl
     mode: "0775"
-- name: check kops available
-  stat: 
-    path: /usr/local/bin/kops
-  register: kops_location
+- name: check kops version
+  command: "kops version"
+  register: kops_version
+  ignore_errors: yes
+  changed_when: False
 - name: install kops
   shell: "wget https://github.com/kubernetes/kops/releases/download/1.8.1/kops-linux-amd64 -O /usr/local/bin/kops"
-  when: kops_location.stat.exists == False
+  when: kops_version.stdout != 'Version 1.8.1 (git-94ef202)'
 - name: set permissions on kops
   file:
     path: /usr/local/bin/kops
