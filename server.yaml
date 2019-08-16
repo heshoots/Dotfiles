@@ -1,7 +1,0 @@
----
-- hosts: homeserver
-  become: yes
-  remote_user: max
-  roles:
-  - vim
-  - docker
