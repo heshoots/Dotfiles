@@ -157,6 +157,6 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 set laststatus=2
 
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+" python3 from powerline.vim import setup as powerline_setup
+" #python3 powerline_setup()
+" python3 del powerline_setup
