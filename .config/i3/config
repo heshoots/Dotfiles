@@ -225,6 +225,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id autorandr --change
 #exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 #exec_always --no-startup-id nitrogen --restore
-#exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 #exec --no-startup-id compton
 #for_window [class="^jetbrains-.+"][window_type=dialog] focus
