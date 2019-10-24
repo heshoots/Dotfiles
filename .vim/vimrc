@@ -149,6 +149,7 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['/home/max/.yarn/bin/javascript-typescript-stdio'],
+    \ 'ruby': ['/home/max/.asdf/shims/solargraph', 'stdio'],
     \ }
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -159,6 +160,20 @@ set laststatus=2
 
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-s-f> :Rg<cr>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 " python3 from powerline.vim import setup as powerline_setup
 " #python3 powerline_setup()
 " python3 del powerline_setup
+"
+set number
