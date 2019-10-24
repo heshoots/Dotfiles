@@ -269,8 +269,8 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
     tap enabled
 }
 
-bindswitch lid:on output $laptop disable
-bindswitch lid:off output $laptop enable
+bindswitch lid:off exec systemctl default
+bindswitch lid:on exec systemctl suspend-then-hibernate
 
 bindsym $win+l exec swaylock -i $bgimage
 
