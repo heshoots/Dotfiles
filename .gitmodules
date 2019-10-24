@@ -19,3 +19,6 @@
 [submodule ".vim/pack/plugins/start/vim-commentary"]
 	path = .vim/pack/plugins/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
+[submodule ".vim/pack/plugins/start/vim-git"]
+	path = .vim/pack/plugins/start/vim-git
+	url = git@github.com:tpope/vim-git.git
