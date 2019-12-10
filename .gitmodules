@@ -22,3 +22,6 @@
 [submodule ".vim/pack/plugins/start/vim-git"]
 	path = .vim/pack/plugins/start/vim-git
 	url = git@github.com:tpope/vim-git.git
+[submodule ".vim/pack/plugins/start/typescript-vim"]
+	path = .vim/pack/plugins/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
